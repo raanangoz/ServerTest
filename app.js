@@ -11,7 +11,7 @@ app.use('/Knapsack', Knapsack);
 var cors = require('cors');
 app.use(cors());
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 app.use(express.json());
 app.listen(port, function () {
     console.log('Example app listening on port ' + port);
