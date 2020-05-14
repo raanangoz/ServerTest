@@ -312,8 +312,8 @@ Knapsack.post('/updateInstancePresentation',function (req, res) {
     var counter = req.body.counter - 1;
     var puzzleID = req.body.puzzleID;
     //var query = "update KSinstance set  "+regularPresCounter+"= '"+currentCounter+"' where PuzzleID= '"+PuzzleID+"'";
-    var postQuery = "update KSinstance set regularPresCounter='"+counter+"' where PuzzleID= '"+PuzzleID+"'";
-
+    var postQuery = "update KSinstance set "+regularPresCounter+"='"+counter+"' where PuzzleID= '"+PuzzleID+"'";
+    //var query = "update KSPresentation set  "+presentation+"= '"+currentValue+"'";
     DButilsAzure.execQuery(postQuery)
         .then(function (result) {
             console.log(result)
