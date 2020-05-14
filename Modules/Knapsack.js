@@ -311,10 +311,10 @@ Knapsack.get('/getInstancesCounters5', function (req, res) {
 Knapsack.post('/updateInstancePresentation',function (req, res) {
     var currentCounter = req.body.counter - 1;
     var puzzleID = req.body.puzzleID;
-    var query = "update KSinstance set  "+regularPresCounter+"= '"+currentCounter+"' where PuzzleID= '"+PuzzleID+"'";
-    //var postQuery = "update KSinstance set  regularPresCounter= '"+currentCounter+"' where PuzzleID= '"+PuzzleID+"'";
+    //var query = "update KSinstance set  "+regularPresCounter+"= '"+currentCounter+"' where PuzzleID= '"+PuzzleID+"'";
+    var postQuery = "update KSinstance set  regularPresCounter= '"+currentCounter+"' where PuzzleID= '"+PuzzleID+"'";
 
-    DButilsAzure.execQuery(query)
+    DButilsAzure.execQuery(postQuery)
 
     // // var query = "select orderPOI from userData where userName='"+username+"'";
         .then(function (result) {
