@@ -276,9 +276,25 @@ Knapsack.post('/submitFinishQuestion', function (req, res) {
 })
 
 
-Knapsack.get('/getInstancesCounters', function (req, res) {
+Knapsack.get('/getInstancesCounters2', function (req, res) {
 
-    var query = "select *  from KSinstance where PuzzleID in ('2','5') ";
+    var query = "select *  from KSinstance where PuzzleID = 2";
+    DButilsAzure.execQuery(query)
+        .then(function (result) {
+            console.log(result)
+            console.log("getUserID")
+            res.send(result)
+        })
+        .catch(function (err) {
+            console.log(err)
+            console.log("finish")
+            res.send(err)
+        })
+})
+
+Knapsack.get('/getInstancesCounters5', function (req, res) {
+
+    var query = "select *  from KSinstance where PuzzleID = 5";
     DButilsAzure.execQuery(query)
         .then(function (result) {
             console.log(result)
