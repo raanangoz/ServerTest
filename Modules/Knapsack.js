@@ -278,7 +278,7 @@ Knapsack.post('/submitFinishQuestion', function (req, res) {
 
 Knapsack.get('/getInstancesCounters2', function (req, res) {
 
-    var query = "select *  from KSinstance where PuzzleID = 2";
+    var query = "select regularPresCounter  from KSinstance where PuzzleID = 2";
     DButilsAzure.execQuery(query)
         .then(function (result) {
             console.log(result)
@@ -294,7 +294,7 @@ Knapsack.get('/getInstancesCounters2', function (req, res) {
 
 Knapsack.get('/getInstancesCounters5', function (req, res) {
 
-    var query = "select *  from KSinstance where PuzzleID = 5";
+    var query = "select regularPresCounter  from KSinstance where PuzzleID = 5";
     DButilsAzure.execQuery(query)
         .then(function (result) {
             console.log(result)
