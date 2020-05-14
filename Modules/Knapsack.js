@@ -9,7 +9,7 @@ module.exports = Knapsack;
 
 var cors = require('cors');
 Knapsack.use(cors());
-
+//henco
 /**
  * get instance of a problem by difficulty
  */
@@ -277,3 +277,77 @@ Knapsack.post('/submitFinishQuestion', function (req, res) {
             res.send(err)
         })
 })
+
+
+Knapsack.get('/getInstancesCounters2', function (req, res) {
+
+    var query = "select regularPresCounter  from KSinstance where PuzzleID = 2";
+    DButilsAzure.execQuery(query)
+        .then(function (result) {
+            console.log(result)
+            console.log("getUserID")
+            res.send(result)
+        })
+        .catch(function (err) {
+            console.log(err)
+            console.log("finish")
+            res.send(err)
+        })
+})
+
+Knapsack.get('/getInstancesCounters5', function (req, res) {
+
+    var query = "select regularPresCounter  from KSinstance where PuzzleID = 5";
+    DButilsAzure.execQuery(query)
+        .then(function (result) {
+            console.log(result)
+            console.log("getUserID")
+            res.send(result)
+        })
+        .catch(function (err) {
+            console.log(err)
+            console.log("finish")
+            res.send(err)
+        })
+})
+
+Knapsack.post('/updateInstancePresentation',function (req, res) {
+    var counter = req.body.counter - 1;
+    var puzzleID = req.body.puzzleID;
+    //var query = "update KSinstance set  "+regularPresCounter+"= '"+currentCounter+"' where PuzzleID= '"+PuzzleID+"'";
+    var postQuery = "update KSinstance set "+regularPresCounter+"='"+counter+"' where PuzzleID= '"+PuzzleID+"'";
+    //var query = "update KSPresentation set  "+presentation+"= '"+currentValue+"'";
+    DButilsAzure.execQuery(postQuery)
+        .then(function (result) {
+            console.log(result)
+            res.send(result)
+
+
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.send(err)
+        })
+})
+
+// Knapsack.get('/getUserID', function (req, res) {
+//
+//     var query = "select max (userID) as maxid from users";
+//     DButilsAzure.execQuery(query)
+//     // (intrestName, userName, date, reviewDescription, rank) values ('"+interestName+"','"+username+"','"+fullDate+"','"+description+"','"+rank+"')";
+//
+//     // var query = "select orderPOI from userData where userName='"+username+"'";
+//         .then(function (result) {
+//             console.log(result)
+//             console.log("getUserID")
+//             res.send(result)
+//
+//
+//         })
+//         .catch(function (err) {
+//             console.log(err)
+//             console.log("finish")
+//             res.send(err)
+//         })
+//
+// })
