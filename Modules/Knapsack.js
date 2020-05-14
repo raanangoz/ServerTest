@@ -278,7 +278,7 @@ Knapsack.post('/submitFinishQuestion', function (req, res) {
 
 Knapsack.get('/getInstancesCounters', function (req, res) {//TODO DUPLICATED CODE
 
-    var query = "select *  from KSinstance where PuzzleID in ('2','5')";
+    var query = "select *  from KSinstance where PuzzleID in ('2','5') ";
     DButilsAzure.execQuery(query)
         .then(function (result) {
             console.log(result)
@@ -294,3 +294,25 @@ Knapsack.get('/getInstancesCounters', function (req, res) {//TODO DUPLICATED COD
         })
 
 })
+
+// Knapsack.get('/getUserID', function (req, res) {//TODO DUPLICATED CODE
+//
+//     var query = "select max (userID) as maxid from users";
+//     DButilsAzure.execQuery(query)
+//     // (intrestName, userName, date, reviewDescription, rank) values ('"+interestName+"','"+username+"','"+fullDate+"','"+description+"','"+rank+"')";
+//
+//     // var query = "select orderPOI from userData where userName='"+username+"'";
+//         .then(function (result) {
+//             console.log(result)
+//             console.log("getUserID")
+//             res.send(result)
+//
+//
+//         })
+//         .catch(function (err) {
+//             console.log(err)
+//             console.log("finish")
+//             res.send(err)
+//         })
+//
+// })
