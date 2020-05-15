@@ -132,11 +132,11 @@ Knapsack.get('/getUserID', function (req, res) {//TODO DUPLICATED CODE
 
 Knapsack.post('/finishGame', function (req, res) {//TODO MAYBE DELETEMOVE ASWELL
 
-    console.log("finishing game");
-    console.log(req.body);
+    //console.log("finishing game");
+    //console.log(req.body);
 
     var GameIDU = req.body.GameID;
-    console.log(GameIDU);
+    //console.log(GameIDU);
     //TODO item ID?
     var totalTimeU = req.body.totalTime;
     var SolutionU = req.body.Solution;
@@ -281,7 +281,7 @@ Knapsack.post('/submitFinishQuestion', function (req, res) {
 
 Knapsack.get('/getInstancesCounters2', function (req, res) {
 
-    var query = "select regularPresCounter  from KSinstance where PuzzleID = 2";
+    var query = "select regularPresCounter  from KSinstance where PuzzleID in (2,5)";
     DButilsAzure.execQuery(query)
         .then(function (result) {
             console.log(result)
