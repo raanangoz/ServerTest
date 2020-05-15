@@ -312,6 +312,7 @@ Knapsack.get('/getInstancesCounters5', function (req, res) {
 })
 
 Knapsack.post('/updateInstancePresentation',function (req, res) {
+    console.log("server function")
     var counter = (req.body.counter) - 1;
     var puzzleID = req.body.puzzleID;
     var postQuery = "update KSinstance set regularPresCounter='"+counter+"' where PuzzleID= '"+PuzzleID+"'";
