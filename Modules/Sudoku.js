@@ -97,7 +97,7 @@ Sudoku.post('/move', function (req, res) {
         .then(function (getResult) {
             console.log("successssssssssssssssssssssssssssssssssssss");
             // stepID = getResult.rowsAffected();
-            // console.log(stepID);
+            console.log(stepID);
             stepID = getResult.length+1;
             console.log(stepID);
             var postQuery = "insert into runningSudoku values ('"+GameID+"','"+ stepID+"','"+ stepType+"','"+time+"','"+stepValueAndCords +"')";
