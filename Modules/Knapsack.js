@@ -248,18 +248,21 @@ Knapsack.post('/submitFamiliarityAndDifficultyEstimateBefore', function (req, re
         })
 })
 Knapsack.post('/submitFinishQuestion', function (req, res) {
-
+    console.log("update)");
     var userID = req.body.userID;
     var gameID = req.body.gameID;
     var confident = req.body.confident;
     var difficulty = req.body.difficultyRank;
     var estimatePeopleDif = req.body.estimatePeopleDif;
     var heaviestItem = req.body.heaviestItem;
+    var peoplecorrect = req.body.peoplecorrect;
     var op1= req.body.op1;
     var op2= req.body.op2;
     var op3= req.body.op3;
     var op4= req.body.op4;
-    var postQuery = "update KSToUser set difficultForOthers= '"+estimatePeopleDif+"', heaviestItem= '"+heaviestItem+"', confidentInAnswer= '"+confident+"', difficultForMe= '"+difficulty+"',op1='"+op1+"',op2='"+op2+"',op3='"+op3+"',op4='"+op4+"' where UserID= '"+userID+"' and GameID= '"+gameID+"'";
+    var op5= req.body.op5;
+    var op6= req.body.op6;
+    var postQuery = "update KSToUser set otherPeopleCorrect= '"+peoplecorrect+"', difficultForOthers= '"+estimatePeopleDif+"', heaviestItem= '"+heaviestItem+"', confidentInAnswer= '"+confident+"', difficultForMe= '"+difficulty+"',op1='"+op1+"',op2='"+op2+"',op3='"+op3+"',op4='"+op4+"',op5='"+op5+"',op6='"+op6+"' where UserID= '"+userID+"' and GameID= '"+gameID+"'";
     // where gameID='"+GameID+"'";
 
     console.log(postQuery);
