@@ -348,3 +348,20 @@ Sudoku.post('/updateRecommendations', function (req, res) {
             res.send(err)
         })
 })
+
+Sudoku.get('/getCorrectness', function (req, res) {
+    // var originalBoard = original.split(',');
+    // var solutionBoardFromUser = solution.split(',');
+    var postQuery = "select Solution from SudokuToUser where PuzzleID = '0' and Solution != 'NULL' ";
+
+    DButilsAzure.execQuery(postQuery)
+
+        .then(function (result) {
+            res.send(result)
+
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.send(err)
+        })
+})
